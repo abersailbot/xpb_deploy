@@ -1,0 +1,1 @@
+ATTRS{idVendor}=="1a86", SYMLINK+="arduino"
