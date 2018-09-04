@@ -1,4 +1,4 @@
-apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel bdist-wheel isc-dhcp-server vim-nox lsof
+apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel bdist-wheel isc-dhcp-server vim-nox lsof tcpdump
 cp gpsd /etc/default/gpsd
 cp boatd-config.yaml /etc/
 cp interfaces /etc/network/
@@ -9,6 +9,8 @@ cp hostapd /etc/default/hostapd
 cp isc-dhcp-server /etc/default/isc-dhcp-server
 cp dhcpd.conf /etc/dhcp/dhcpd.conf
 cp cmdline.txt /boot/cmdline.txt
+
+mkdir /var/log/boatd
 
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 
