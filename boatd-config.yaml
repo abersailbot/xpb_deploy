@@ -5,24 +5,26 @@ boatd:
 plugin_directory: null
 
 plugins:
-    - mavlink:
+    - opencpn:
         enabled: true
         device: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD01UBXA-if00-port0
         baud: 9600
+        destination_ip: 192.168.40.255
+
     - logger:
-        enabled: true
+        enabled: false
         period: 1
-        filename: /var/log/boatd/aber-2018-06-30
+        filename: /var/log/boatd/wrsc2019
     - gpx_logger:
         enabled: true
         period: 1
-        filename: /var/log/boatd/aber-2018-06-30
+        filename: /var/log/boatd/wrsc2019-gpx
 
-waypoint_file: '/home/pi/aber-waypoints'
+waypoint_file: '/home/pi/waypoints'
 
 driver:
-    #file: ~/git/sails-boatd-driver/driver.py
-    module: dewi_boatd_driver
+    file: /home/pi/dewi/dewi-boatd-driver/dewi_boatd_driver.py
+    #module: dewi_boatd_driver
 
 
 behaviours:
