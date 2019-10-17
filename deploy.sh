@@ -51,6 +51,4 @@ cd ..
 cd dewi-boatd-driver
 sudo ln -s dewi_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
-#gopro stuff, not sure if this is needed?
-sudo pip install gopro goprocam
-sudo apt install python-opencv
+
