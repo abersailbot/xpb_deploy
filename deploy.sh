@@ -1,4 +1,12 @@
+apt update
 apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel bdist-wheel isc-dhcp-server vim-nox lsof tcpdump
+apt upgrade
+
+
+git clone https://github.com/abersailbot/xpb_deploy
+
+cd xpb_deploy
+
 cp gpsd /etc/default/gpsd
 cp boatd-config.yaml /etc/
 cp interfaces /etc/network/
