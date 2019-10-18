@@ -46,12 +46,12 @@ export PATH=$PATH:/home/pi/.local/bin/
 sudo pip install python-boatdclient
 
 cd /home/pi
-git clone --recursive https://github.com/abersailbot/dewi
-cd dewi
+git clone --recursive https://github.com/abersailbot/xpb
+cd xpb
 cd boatd
 sudo python setup.py install
 cd ..
-cd dewi-boatd-driver
-sudo ln -s dewi_boatd_driver.py /usr/local/lib/python2.7/dist-packages
+cd xpb-boatd-driver
+sudo ln -s xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
 
