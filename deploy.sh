@@ -52,6 +52,13 @@ cd boatd
 sudo python setup.py install
 cd ..
 cd dewi-boatd-driver
-sudo ln -s dewi_boatd_driver.py /usr/local/lib/python2.7/dist-packages
+ln -s dewi_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
+#install boatd service
+cp boatd.service /etc/systemd/system/boatd.service
+systemctl daemon-reload
+systemctl enable boatd
+
+#setup motd
+cp motd /etc/motd
 
