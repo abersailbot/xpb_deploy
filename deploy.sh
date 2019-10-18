@@ -30,6 +30,9 @@ dpkg-reconfigure locales
 #enable SSHD
 systemctl enable ssh
 
+#enable hostapd
+systemctl unmask hostapd
+systemctl enable hostapd
 
 #install platformio
 wget https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py
