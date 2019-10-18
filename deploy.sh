@@ -54,4 +54,5 @@ cd ..
 cd xpb-boatd-driver
 sudo ln -s xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
-
+#set the password to something more secure
+sudo usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJMS1wK9hOr1BkQpSMXbbu4Pmr8Pli6zanQ.g10Q0' pi
