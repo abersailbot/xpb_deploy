@@ -2,10 +2,8 @@ apt update
 apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
 apt upgrade
 
-
-git clone https://github.com/abersailbot/xpb_deploy
-
-cd xpb_deploy
+git clone --recursive https://github.com/abersailbot/xpb
+cd /home/pi/xpb/xpb_deploy
 
 cp gpsd /etc/default/gpsd
 cp boatd-config.yaml /etc/
@@ -45,9 +43,7 @@ export PATH=$PATH:/home/pi/.local/bin/
 
 sudo pip install python-boatdclient
 
-cd /home/pi
-git clone --recursive https://github.com/abersailbot/xpb
-cd xpb
+cd /home/pi/xpb
 cd boatd
 sudo python setup.py install
 cd ..
