@@ -1,11 +1,9 @@
 apt update
-apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump
+apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
 apt upgrade
 
-
-git clone https://github.com/abersailbot/xpb_deploy
-
-cd xpb_deploy
+git clone --recursive https://github.com/abersailbot/xpb
+cd /home/pi/xpb/xpb_deploy
 
 cp gpsd /etc/default/gpsd
 cp boatd-config.yaml /etc/
@@ -42,17 +40,13 @@ echo "export PATH=$PATH:/home/pi/.local/bin/" >> ~/.bashrc
 
 export PATH=$PATH:/home/pi/.local/bin/
 
-
+#install boatd
 sudo pip install python-boatdclient
 
-cd /home/pi
-git clone --recursive https://github.com/abersailbot/dewi
-cd dewi
+cd /home/pi/xpb
 cd boatd
 sudo python setup.py install
 cd ..
-cd dewi-boatd-driver
-ln -s dewi_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
 #install boatd service
 cp boatd.service /etc/systemd/system/boatd.service
@@ -62,3 +56,9 @@ systemctl enable boatd
 #setup motd
 cp motd /etc/motd
 
+#symlink driver
+cd xpb-boatd-driver
+sudo ln -s xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
+
+#set the password to something more secure
+sudo usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJMS1wK9hOr1BkQpSMXbbu4Pmr8Pli6zanQ.g10Q0' pi

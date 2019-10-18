@@ -6,29 +6,10 @@ iface eth0 inet static
     address 192.168.0.1
     netmask 255.255.255.0
 
-#wifi access point on the boat, wifi external antenna
-#change to wlan1 on a Pi 3
+#wifi access point on the boat
 allow-hotplug wlan0
 iface wlan0 inet static
   address 192.168.40.1
   netmask 255.255.255.0
-
-#additional USB without external antenna
-#change interface name to wlan0 for a Pi 3's internal Wifi or wlan2 for additional USB wifi on a Pi3
-
-#uncomment for GoPro connectivity
-#allow-hotplug wlan1
-#iface wlan1 inet static
-#    address 10.5.5.105
-#    netmask 255.255.255.0
-#    wpa-ssid "sailbotgopro"
-#    wpa-psk "aberaber"
-
-allow-hotplug wlan1
-iface wlan1 inet static
-    address 192.168.2.60
-    netmask 255.255.255.0
-    wpa-ssid "Tom's MacBook Pro WiFi"
-    wpa-psk "abersailbot5"
 
 up iptables-restore < /etc/iptables.ipv4.nat

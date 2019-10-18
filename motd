@@ -1,0 +1,33 @@
+██╗  ██╗██████╗ ██████╗
+╚██╗██╔╝██╔══██╗██╔══██╗
+ ╚███╔╝ ██████╔╝██████╔╝
+ ██╔██╗ ██╔═══╝ ██╔══██╗
+██╔╝ ██╗██║     ██████╔╝
+╚═╝  ╚═╝╚═╝     ╚═════╝
+
+eXperimental Polystyrene Boat
+
+
+Notes:
+
+All code can be found in /home/pi/xpb
+
+Boatd was installed from /home/pi/xpb/boatd into /usr/local/lib/python2.7/dist-packages/boatd-3.2.0-py2.7.egg/boatd/
+
+The xpb-boatd-driver is installed in /home/pi/xpb/xpb-driver and symlinked to /usr/local/lib/python2.7/dist-packages
+
+    Run boatd:
+
+        sudo service boatd start
+
+    Check boatd is running (it should start automatically):
+
+        service boatd status
+
+    Run the behaviour:
+
+        python /home/pi/xpb/xpb-behaviour/waypoint-behaviour
+
+    Waypoints file:
+
+        In /home/pi/xpb/waypoints
