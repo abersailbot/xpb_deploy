@@ -17,7 +17,7 @@ plugins:
         period: 1
         filename: /var/log/boatd/xpb-gpx
 
-waypoint_file: '/home/pi/waypoints'
+waypoint_file: '/home/pi/xpb/waypoints'
 
 driver:
     file: /home/pi/xpb/xpb-boatd-driver/xpb_boatd_driver.py
