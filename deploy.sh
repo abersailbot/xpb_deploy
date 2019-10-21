@@ -1,6 +1,6 @@
-apt update
-apt install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
-apt upgrade
+apt -y update
+apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
+apt -y upgrade
 
 git clone --recursive https://github.com/abersailbot/xpb
 cd /home/pi/xpb/xpb_deploy
