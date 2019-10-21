@@ -1,3 +1,8 @@
+#!/bin/bash
+
+#exit if any command fails
+set -e 
+
 apt -y update
 apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
 apt -y upgrade
