@@ -15,6 +15,7 @@ cp hostapd /etc/default/hostapd
 cp isc-dhcp-server /etc/default/isc-dhcp-server
 cp dhcpd.conf /etc/dhcp/dhcpd.conf
 cp cmdline.txt /boot/cmdline.txt
+cp motd /etc/motd
 
 mkdir /var/log/boatd
 
@@ -46,19 +47,15 @@ sudo pip install python-boatdclient
 cd /home/pi/xpb
 cd boatd
 sudo python setup.py install
-cd ..
+cd /home/pi/xpb/xpb_deploy
 
 #install boatd service
 cp boatd.service /etc/systemd/system/boatd.service
 systemctl daemon-reload
 systemctl enable boatd
 
-#setup motd
-cp motd /etc/motd
-
 #symlink driver
-cd xpb-boatd-driver
-sudo ln -s xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
+sudo ln -s /home/pi/xpb/xpb-boatd-driver/xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
 #set the password to something more secure
 sudo usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJMS1wK9hOr1BkQpSMXbbu4Pmr8Pli6zanQ.g10Q0' pi
