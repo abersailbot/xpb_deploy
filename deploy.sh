@@ -3,6 +3,11 @@
 #exit if any command fails
 set -e 
 
+if [ `whoami` != "root" ] ; then
+    echo "Rerun as root"
+    exit 1
+fi
+
 apt -y update
 apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux python-pip python-setuptools python-wheel isc-dhcp-server vim-nox lsof tcpdump libyaml-dev
 apt -y upgrade
@@ -21,6 +26,7 @@ cp isc-dhcp-server /etc/default/isc-dhcp-server
 cp dhcpd.conf /etc/dhcp/dhcpd.conf
 cp cmdline.txt /boot/cmdline.txt
 cp motd /etc/motd
+cp ntp.conf /etc/ntp.conf
 
 mkdir /var/log/boatd
 
@@ -47,7 +53,7 @@ echo "export PATH=$PATH:/home/pi/.local/bin/" >> ~/.bashrc
 export PATH=$PATH:/home/pi/.local/bin/
 
 #install boatd
-sudo pip install python-boatdclient
+pip install python-boatdclient
 
 cd /home/pi/xpb
 cd boatd
@@ -60,7 +66,11 @@ systemctl daemon-reload
 systemctl enable boatd
 
 #symlink driver
-sudo ln -s /home/pi/xpb/xpb-boatd-driver/xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
+ln -s /home/pi/xpb/xpb-boatd-driver/xpb_boatd_driver.py /usr/local/lib/python2.7/dist-packages
 
 #set the password to something more secure
-sudo usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJMS1wK9hOr1BkQpSMXbbu4Pmr8Pli6zanQ.g10Q0' pi
+usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJMS1wK9hOr1BkQpSMXbbu4Pmr8Pli6zanQ.g10Q0' pi
+
+#set the timezone
+rm /etc/localtime
+ln /usr/share/zoneinfo/Etc/UTC /etc/localtime
