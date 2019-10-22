@@ -73,4 +73,4 @@ usermod -p '$6$2VfUJBiCiUNV/RkL$gz2TUtullYN2svx6jb39UESyOholUdE/EehNoqCKagEpzfJM
 
 #set the timezone
 rm /etc/localtime
-ln /usr/share/zoneinfo/Etc/UTC /etc/localtime
+ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime
