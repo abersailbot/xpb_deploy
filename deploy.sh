@@ -33,9 +33,9 @@ mkdir /var/log/boatd
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 
 
-#tmux wants the US locale
-echo "enable en_US UTF8 locale"
-dpkg-reconfigure locales
+#tmux wants the US locale??? Seems to work without it, commenting out for now
+#echo "enable en_US UTF8 locale"
+#dpkg-reconfigure locales
 
 #enable SSHD
 systemctl enable ssh
