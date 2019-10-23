@@ -13,6 +13,7 @@ apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux isc-dhcp-se
 apt -y upgrade
 
 git clone --recursive https://github.com/abersailbot/xpb
+chown -R pi:pi /home/pi/xpb
 cd /home/pi/xpb/xpb_deploy
 
 cp gpsd /etc/default/gpsd
@@ -80,6 +81,8 @@ mkdir /home/pi/.ssh
 chmod 700 /home/pi/.ssh
 cp /home/pi/xpb/xpb_deploy/authorized_keys /home/pi/.ssh/authorized_keys
 chmod 600  /home/pi/.ssh/authorized_keys
+chown -R pi:pi /home/pi/.ssh
+
 
 #set the timezone
 rm /etc/localtime
