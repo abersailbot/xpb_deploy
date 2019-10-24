@@ -63,7 +63,7 @@ cd boatd
 python3 setup.py install
 cd /home/pi/xpb/xpb_deploy
 #change boatd to run in python3
-sudo sed -i 's@^#!/usr/bin/python$@#!/usr/bin/python3@' /usr/local/bin/boatd
+sed -i 's@^#!/usr/bin/python$@#!/usr/bin/python3@' /usr/local/bin/boatd
 
 #install boatd service
 cp boatd.service /etc/systemd/system/boatd.service
@@ -87,4 +87,11 @@ chown -R pi:pi /home/pi/.ssh
 #set the timezone
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime
+
+#pi3 GPS fixes
+echo "dtoverlay=pi3-disable-bt" >> /boot/config.txt
+systemctl disable hciuart
+
+#force HDMI display
+sed -i 's/^#hdmi_force_hotplug=1/hdmi_force_hotplug=1/' /boot/config.txt
 
