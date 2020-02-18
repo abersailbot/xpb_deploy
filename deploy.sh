@@ -9,7 +9,7 @@ if [ `whoami` != "root" ] ; then
 fi
 
 apt -y update
-apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux isc-dhcp-server vim-nox lsof tcpdump libyaml-dev python3-pip
+apt -y install hostapd gpsd mc git mosh ntp gpsd-clients screen tmux isc-dhcp-server vim-nox lsof tcpdump libyaml-dev python3-pip i2c-tools
 apt -y upgrade
 
 git clone --recursive https://github.com/abersailbot/xpb
